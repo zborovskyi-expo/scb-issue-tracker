@@ -29,7 +29,7 @@ router.get('/:id', (req, res, next) => {
 router.post('/', (req, res, next) => {
 	const issue = new Issue();
 
-	if (typeof req.body.title === 'undefined') {
+	if (!req.body.title || typeof req.body.title === 'undefined') {
 		return res.status(400).json({ message: "Bad Request" });
 	}
 	
